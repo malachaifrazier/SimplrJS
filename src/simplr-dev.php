@@ -1,5 +1,5 @@
 <?php
-	// Set the proper response header 
+	// Set the proper response header
 	header('Content-type: text/javascript'); 
 ?>
 
