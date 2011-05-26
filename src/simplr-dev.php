@@ -19,11 +19,11 @@
 	};
 
 	<?php 
-		include("CORE/CORE.console.js"); 
-		include("CORE/CORE.util.js");
-		include("CORE/CORE.ui.js");
-		include("CORE/CORE.validation.js");
-		include("CORE/defaultCodesAndValidators.js");
+		include("core/core.console.js"); 
+		include("core/core.util.js");
+		include("core/core.ui.js");
+		include("core/core.validation.js");
+		include("core/defaultCodesAndValidators.js");
 	?>
 	var simplr = window.simplr = {
 		config : {
