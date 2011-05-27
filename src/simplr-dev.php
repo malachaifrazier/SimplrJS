@@ -15,7 +15,7 @@
 	window.Simplr = {
 		Config : {
 			Data : {
-				ConsoleActive : false,
+				ConsoleActive : false
 			},
 			mToggleConsole : function(on) {
 				$("#_simplr_core_console").remove();
