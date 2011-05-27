@@ -1,7 +1,7 @@
 (function() {
 	
 	var browserData = {
-		userAgent : ""
+		UserAgent : ""
 	};
 	
 	Simplr.Browser = {
@@ -12,13 +12,13 @@
 		},
 		
 		mDevice : function() {
-			if(browserData.userAgent.match(/iPhone/i)) {
+			if(browserData.UserAgent.match(/iPhone/i)) {
 				return "iPhone";
-			} else if(browserData.userAgent.match(/iPod/i) ) {
+			} else if(browserData.UserAgent.match(/iPod/i) ) {
 				return "iPod";
-			} else if(browserData.userAgent.match(/iPad/i)) {
+			} else if(browserData.UserAgent.match(/iPad/i)) {
 				return "iPad";
-			} else if(browserData.userAgent.match(/Android/i)) {
+			} else if(browserData.UserAgent.match(/Android/i)) {
 				return "Android";
 			}
 			return "other";
@@ -29,7 +29,7 @@
 		},
 		
 		mSetUserAgent : function(uaString) {
-			browserData.userAgent = uaString;
+			browserData.UserAgent = uaString;
 		},
 		
 		mTouchCapable : function() {
