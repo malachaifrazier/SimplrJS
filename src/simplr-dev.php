@@ -34,11 +34,44 @@
 				}
 				return Simplr.Config.Data.ConsoleActive;
 			}
-		},
-		Core : {}
+		}
 	};
 
-	<?php 
+	// Browser
+	Simplr.Browser = {};
+	<?php
+		include("browser/browser.js");
+	?>
+	
+	// Cache
+	Simplr.Cache = {};
+	<?php
+		include("cache/cache.js");
+	?>
+
+	// Controller
+	Simplr.Controller = {};
+	<?php
+		include("controller/jquery.ba-hashchange.js");
+		include("controller/controller.js");
+	?>
+	
+	// Converison
+	Simplr.Conversion = {};
+	<?php
+		include("conversion/json2.js");
+		include("conversion/conversion.js");
+	?>
+	
+	// Cookie
+	Simplr.Cookie = {};
+	<?php
+		include("cookie/cookie.js");
+	?>
+
+	// Core
+	Simplr.Core = {};
+	<?php
 		include("core/core.console.js"); 
 		include("core/core.util.js");
 		include("core/core.ui.js");
@@ -46,47 +79,50 @@
 		include("core/defaultCodesAndValidators.js");
 	?>
 	
-	<?php 
-		
-		// browser 
-		include("browser/browser.js");
-
-		// cache
-		include("cache/cache.js");
-		
-		// cookie
-		include("cookie/cookie.js");
-		
-		// controller
-		include("controller/jquery.ba-hashchange.js");
-		include("controller/controller.js");
-		
-		// conversion
-		include("conversion/json2.js");
-		include("conversion/conversion.js");
-		
-		// form
+	// Form
+	Simplr.Form = {};
+	<?php
 		include("form/form.js");
-		
-		// layout
+	?>
+	
+	// Layout
+	Simplr.Layout = {};
+	<?php
 		include("layout/innerxhtml.js");
 		include("layout/layout.js");
-		
-		// tracker
+	?>
+	
+	// Trigger
+	Simplr.Trigger = {};
+	<?php
 		include("trigger/trigger.js");
-		
-		// ui
+	?>
+	
+	// Ui
+	Simplr.Ui = {
+		Widget : {}
+	};
+	<?php
 		include("ui/ui.layer.js");
 		include("ui/ui.newBrowserWindow.js");
 		include("ui/ui.widget.oTrackableScrollingElement.js");
-		
-		// util
+	?>
+
+	// Util
+	Simplr.Util = {};
+	<?php
 		include("util/util.js");
-		
-		// validation
+	?>
+	
+	// Validation
+	Simplr.Validation = {};
+	<?php
 		include("validation/validation.js");
-		
-		// view
+	?>
+
+	// View
+	Simplr.View = {};
+	<?php
 		include("view/view.js");
 	?>
 
