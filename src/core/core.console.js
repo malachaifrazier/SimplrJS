@@ -4,7 +4,7 @@
 		if( $.isArray(data.message) ) {
 			console.group(data.group);
 			for(var i = 0, iL = data.message.length; i < iL; i++) {
-				var newMessageData = $.extend(CORE.console.mGetMessageTemplate(), data.message[i]);
+				var newMessageData = $.extend(Simplr.Core.Console.mGetMessageTemplate(), data.message[i]);
 				renderMessages(newMessageData);
 			}
 			console.groupEnd();
