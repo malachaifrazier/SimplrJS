@@ -1,3 +1,4 @@
+// simplr v2.0.0
 (function($) {
 
 	// Array Remove - By John Resig (MIT Licensed)
