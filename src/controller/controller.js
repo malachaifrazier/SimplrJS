@@ -1,7 +1,7 @@
 (function() {
 
 	function htmlEntities(string) {
-		return string.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+		return string.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 	};
 	
 	var ControllerData = {
@@ -60,7 +60,7 @@
 			var urlArray = ret.url.split("?");
 			
 			/* 1. Find the base and remove if its there */
-			var tmpURL = urlArray[0];
+			var tmpURL = decodeURI(urlArray[0]);
 			for(var base in ControllerData.Bases) {
 				if( (urlArray[0] = urlArray[0].replace(base, "")) != tmpURL ) { 
 					ret.base = base; ret.route.push(base); break;
@@ -97,7 +97,7 @@
 				var kvArr = urlArray[1].split("&");
 				for(var i = 0, iL = kvArr.length; i < iL; i++) {
 					var keyValue = kvArr[i].split("=");
-					ret.parameters[keyValue[0]] = $.trim(htmlEntities(keyValue[1]));
+					ret.parameters[keyValue[0]] = $.trim(htmlEntities(decodeURIComponent(keyValue[1])));
 				}
 			}
 			
@@ -106,14 +106,17 @@
 		},
 		
 		mRouteAndExecute : function(hashURLPart) {
-			Simplr.Controller.mExecute(Simplr.Controller.mRoute(decodeURI(hashURLPart)));
+			Simplr.Controller.mExecute(Simplr.Controller.mRoute(hashURLPart));
 		}
 	};
 	
 	$(function() {
 		$(window).hashchange(function() {
-			if( window.location.hash != "" ) {
-				Simplr.Controller.mRouteAndExecute(window.location.hash);
+			var hash = window.location.href.split("#");
+			if(hash.length < 2) {
+				if(!Simplr.Core.Util.mEmpty(hash[1])) {
+					Simplr.Controller.mRouteAndExecute(hash[1]);
+				}
 			}
 		});
 	});

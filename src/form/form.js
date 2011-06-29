@@ -11,16 +11,13 @@
 		// Create the Messages
 		for(var key in obj.codes) {
 			var msgObject = obj.codes[key];
-			var html = "";
-			
 			var msgArray = [ msgObject.error, msgObject.success ];
+			var html = "";
 			for(var i = 0; i < 2; i++) {
-				var type = msgArray[i];
-				for(var j = 0, jL = type.length; j < jL; j++) {
-					html += '<p class="' + (( i == 0) ? classes.TextError : classes.TextInformation) + ' ' + specClass + '">' + Simplr.Core.Validation.mGetCodeMessage(type[j], obj.data[key].label) + '</p>';
-					break; // Only Display 1 Message
+				// Only showing 1 message at a time.
+				if(msgArray[i].length > 0) {
+					html += '<p class="' + (( i == 0) ? classes.TextError : classes.TextInformation) + ' ' + specClass + '">' + Simplr.Core.Validation.mGetCodeMessage(msgArray[i][0], obj.data[key].label) + '</p>';
 				}
-				break; // Only display 1 of each type
 			}
 			
 			// Now find the Form Entry to put the message html

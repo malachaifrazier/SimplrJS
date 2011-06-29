@@ -534,7 +534,7 @@
 (function() {
 
 	function htmlEntities(string) {
-		return string.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+		return string.replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 	};
 	
 	var ControllerData = {
@@ -593,7 +593,7 @@
 			var urlArray = ret.url.split("?");
 			
 			/* 1. Find the base and remove if its there */
-			var tmpURL = urlArray[0];
+			var tmpURL = decodeURI(urlArray[0]);
 			for(var base in ControllerData.Bases) {
 				if( (urlArray[0] = urlArray[0].replace(base, "")) != tmpURL ) { 
 					ret.base = base; ret.route.push(base); break;
@@ -630,7 +630,7 @@
 				var kvArr = urlArray[1].split("&");
 				for(var i = 0, iL = kvArr.length; i < iL; i++) {
 					var keyValue = kvArr[i].split("=");
-					ret.parameters[keyValue[0]] = $.trim(htmlEntities(keyValue[1]));
+					ret.parameters[keyValue[0]] = $.trim(htmlEntities(decodeURIComponent(keyValue[1])));
 				}
 			}
 			
@@ -639,14 +639,17 @@
 		},
 		
 		mRouteAndExecute : function(hashURLPart) {
-			Simplr.Controller.mExecute(Simplr.Controller.mRoute(decodeURI(hashURLPart)));
+			Simplr.Controller.mExecute(Simplr.Controller.mRoute(hashURLPart));
 		}
 	};
 	
 	$(function() {
 		$(window).hashchange(function() {
-			if( window.location.hash != "" ) {
-				Simplr.Controller.mRouteAndExecute(window.location.hash);
+			var hash = window.location.href.split("#");
+			if(hash.length < 2) {
+				if(!Simplr.Core.Util.mEmpty(hash[1])) {
+					Simplr.Controller.mRouteAndExecute(hash[1]);
+				}
 			}
 		});
 	});
@@ -1579,16 +1582,13 @@ Simplr.Core.Validation.mAddValidators({
 		// Create the Messages
 		for(var key in obj.codes) {
 			var msgObject = obj.codes[key];
-			var html = "";
-			
 			var msgArray = [ msgObject.error, msgObject.success ];
+			var html = "";
 			for(var i = 0; i < 2; i++) {
-				var type = msgArray[i];
-				for(var j = 0, jL = type.length; j < jL; j++) {
-					html += '<p class="' + (( i == 0) ? classes.TextError : classes.TextInformation) + ' ' + specClass + '">' + Simplr.Core.Validation.mGetCodeMessage(type[j], obj.data[key].label) + '</p>';
-					break; // Only Display 1 Message
+				// Only showing 1 message at a time.
+				if(msgArray[i].length > 0) {
+					html += '<p class="' + (( i == 0) ? classes.TextError : classes.TextInformation) + ' ' + specClass + '">' + Simplr.Core.Validation.mGetCodeMessage(msgArray[i][0], obj.data[key].label) + '</p>';
 				}
-				break; // Only display 1 of each type
 			}
 			
 			// Now find the Form Entry to put the message html
