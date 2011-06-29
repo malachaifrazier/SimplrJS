@@ -32,7 +32,7 @@ v2.0.0
 		Examples: [old] simplr.util.mEmpty() --> [new] Simplr.Util.mEmpty()
 
 Functionality
-_____________
+---------------
 
 * Simplr.Core.*
 	+	Simplr.Core.Console.*
