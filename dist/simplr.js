@@ -1331,23 +1331,31 @@ Simplr.Conversion = {
 			return { offsets : offsets, dimensions : dimensions };
 		},
 		mWindowInfo : function() {
-			var screenInfo = {};
-			/* Find Offsets */
-			if( typeof( window.pageYOffset ) == 'number' ) {
-				/*Netscape compliant*/
-				screenInfo.offsets = [ window.pageXOffset, window.pageYOffset ];
-			} else if( document.body && ( document.body.scrollLeft || document.body.scrollTop ) ) {
-			    /*DOM compliant*/
-				screenInfo.offsets = [ document.body.scrollLeft, document.body.scrollTop ];
-			} else if( document.documentElement && ( document.documentElement.scrollLeft || document.documentElement.scrollTop ) ) {
-			    /*IE6 standards compliant mode*/
-				screenInfo.offsets = [ document.documentElement.scrollLeft, document.documentElement.scrollTop ];
-			} else {
-				screenInfo.offsets = [ 0, 0 ];
+			var screenInfo = {
+				offsets : [0, 0],
+				dimensions : [0, 0]
+			};
+			
+			// Offsets
+			if (typeof window.pageYOffset == 'number') { 
+				// Netscape compliant
+				screenInfo.offsets = [window.pageXOffset, window.pageYOffset];
+			} else if (document.body && (document.body.scrollLeft || document.body.scrollTop)) { 
+				// DOM compliant
+				screenInfo.offsets = [document.body.scrollLeft, document.body.scrollTop];
+			} else if (document.documentElement && (document.documentElement.scrollLeft || document.documentElement.scrollTop)) {
+				// IE6 standards compliant mode
+				screenInfo.offsets = [document.documentElement.scrollLeft, document.documentElement.scrollTop];
 			}
-			/* ---------------- */
-			/* Get height / widths */
-			screenInfo.dimensions = [ $(window).width(), $(window).height() ];
+
+			// Width and Height
+			if( typeof window.innerWidth == 'number' ) {
+				// NON IE
+				screenInfo.dimensions = [window.innerWidth, window.innerHeight];
+			} else if( document.documentElement && ( document.documentElement.clientWidth || document.documentElement.clientHeight ) ) {
+				// IE 6 plus in standards compliant mode
+				screenInfo.dimensions = [document.documentElement.clientWidth, document.documentElement.clientHeight];
+			}
 			return screenInfo;
 		},
 		Widget : {
