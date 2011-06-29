@@ -20,6 +20,7 @@ Change Log
 ------------
 
 v2.0.0
+
 	Features:
 		- Simplr.Core.*, core functionality now available for use in your applications.
 
