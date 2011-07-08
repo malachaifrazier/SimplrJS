@@ -33,8 +33,32 @@ v2.0.0
 
 Functionality
 ---------------
-
-* Simplr.Core.*
+*	Simplr.Browser.*
+	+	Simplr.Browser.mAddressBarHeight()
+	+	Simplr.Browser.mDevice()
+	+	Simplr.Browser.mLocalStorageCapable()
+	+	Simplr.Browser.mSetUserAgent()
+	+	Simplr.Browser.mTouchCapable()
+*	Simplr.Cache.*
+	+	Simplr.Cache.mExpire()
+	+	Simplr.Cache.mGet()
+	+	Simplr.Cache.mSet()
+*	Simplr.Controller.*
+	+	Simplr.Controller.mAddBases()
+	+	Simplr.Controller.mAddCommands()
+	+	Simplr.Controller.mExecute()
+	+	Simplr.Controller.mGetCommands()
+	+	Simplr.Controller.mGetBases()
+	+	Simplr.Controller.mRoute()
+	+	Simplr.Controller.mRouteAndExecute()
+*	Simplr.Conversion.*
+	+	Simplr.Conversion.mObjectToJSONString()
+	+	Simplr.Conversion.mJSONStringToObject()
+*	Simplr.Cookie.*
+	+	Simplr.Cookie.mGet()
+	+	Simplr.Cookie.mSet()
+	+	Simplr.Cookie.mExpire()
+*	Simplr.Core.*
 	+	Simplr.Core.Console.*
 		-	Simplr.Core.Console.mGetMessageTemplate()
 		-	Simplr.Core.Console.mMessage()
@@ -56,6 +80,57 @@ Functionality
 		-	Simplr.Core.Validation.mGetRuleResultsTemplate()
 		-	Simplr.Core.Validation.mGetValidators()
 		-	Simplr.Core.Validation.mValidate()
+*	Simplr.Form.*
+	+	Simplr.Form.mAddValidators()
+	+	Simplr.Form.mGetValidators()
+	+	Simplr.Form.mAddCodes()
+	+	Simplr.Form.mGetCodes()
+	+	Simplr.Form.mAddLabelAssociation()
+	+	Simplr.Form.mAddValidationAssociation()
+	+	Simplr.Form.mGetValues()
+	+	Simplr.Form.mValidateValuesAndRender()
+*	Simplr.Layout.*
+	+	Simplr.Layout.mAddComponents()
+	+	Simplr.Layout.mAssembleLayout()
+	+	Simplr.Layout.mGetComponent()
+	+	Simplr.Layout.mGetComponents()
+	+	Simplr.Layout.mAddGlobalTokens()
+	+	Simplr.Layout.mReplaceTokens()
+*	Simplr.Trigger.*
+	+	Simplr.Trigger.mAddServices()
+	+	Simplr.Trigger.mGetServices()
+	+	Simplr.Trigger.mSetEnvironment()
+	+	Simplr.Trigger.mOnPage()
+	+	Simplr.Trigger.mOnEvent()
+	+	Simplr.Trigger.mOnTransaction()
+*	Simplr.Ui.*
+	+	Simplr.Ui.Layer.*
+		-	Simplr.Ui.Layer.mCenter()
+		-	Simplr.Ui.Layer.mCreate()
+		-	Simplr.Ui.Layer.mDestroy()
+	+	Simplr.Ui.mNewBrowserWindow()
+	+	Simplr.Ui.Widget.*
+		-	Simplr.Ui.Widget.oTrackableScrollingElement()
+			>	this.reset()
+			>	this.destroy()
+*	Simplr.Util.*
+	+	Simplr.Util.mEmpty()
+	+	Simplr.Util.mEqual()
+	+	Simplr.Util.mGetUrlParameter()
+	+	Simplr.Util.mHasLocalStorage()
+	+	Simplr.Util.mTruncateString()
+*	Simplr.Validation.*
+	+	Simplr.Validation.mAddCodes()
+	+	Simplr.Validation.mGetCodes()
+	+	Simplr.Validation.mAddValidators()
+	+	Simplr.Validation.mGetValidators()
+	+	Simplr.Validation.mGetRuleResultsTemplate()
+	+	Simplr.Validation.mGetCodeMessage()
+	+	Simplr.Validation.mValidate()
+*	Simplr.View.*
+	+	Simplr.View.mAddViews()
+	+	Simplr.View.mGetViews()
+	+	Simplr.View.mRender()
 
 Usage
 -----
