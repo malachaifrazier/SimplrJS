@@ -550,7 +550,7 @@
 	};
 	
 	Simplr.Controller = {
-	
+		
 		mAddBases : function(bases) {
 			var collection = $.isArray(bases) ? bases : [ bases ];
 			for(var i = 0, iL = collection.length; i < iL; i++) {
@@ -567,17 +567,13 @@
 			}
 		},
 		
+		mData : function() {
+			return ControllerData;
+		},
+		
 		mExecute : function(data) {
 			var key = data.route.join("_");
 			try { ControllerData.Commands[key](data); } catch(e) { };
-		},
-		
-		mGetCommands : function() {
-			return ControllerData.Commands;
-		},
-		
-		mGetBases : function() {
-			return ControllerData.Bases;
 		},
 		
 		mRoute : function(url) {
@@ -1434,9 +1430,8 @@ Simplr.Conversion = {
 		mAddValidators : function(obj) {
 			$.extend(data.validators, obj);
 		},
-		
-		mGetCodes : function() {
-			return data.codes;
+		mData : function() {
+			return data;
 		},
 		mGetCodeMessage : function(code, label) {
 			if( data.codes[code] != undefined ) {
@@ -1447,10 +1442,6 @@ Simplr.Conversion = {
 		mGetRuleResultsTemplate : function() {
 			return $.extend(true, {}, data.ruleResultsTemplate);
 		},
-		mGetValidators : function() {
-			return data.validators;
-		},
-		
 		mValidate : function(dataObject) {
 			var results = $.extend(true, {}, data.validationResultsTemplate, { data : $.extend(true, {}, dataObject)});
 			for(var key in results.data) {
@@ -1640,16 +1631,14 @@ Simplr.Core.Validation.mAddValidators({
 			Simplr.Core.Validation.mAddValidators(obj);
 		},
 		mGetValidators : function() {
-			return Simplr.Core.Validation.mGetValidators();
+			return Simplr.Core.Validation.mData().validators;
 		},
-		
 		mAddCodes : function(obj) {
 			Simplr.Core.Validation.mAddCodes(obj);
 		},
 		mGetCodes : function() {
-			return Simplr.Core.Validation.mGetCodes();
+			return Simplr.Core.Validation.mData().codes;
 		},
-		
 		mAddLabelAssociation : function(obj) {
 			$.extend(FormData.Labels, obj);
 		},
@@ -2166,13 +2155,13 @@ var innerXHTML = function($source,$string,$appendage) {
 		Simplr.Core.Validation.mAddCodes(obj);
 	},
 	mGetCodes : function() {
-		return Simplr.Core.Validation.mGetCodes();
+		return Simplr.Core.Validation.mData().codes;
 	},
 	mAddValidators : function(obj) {
 		Simplr.Core.Validation.mAddValidators(obj);
 	},
 	mGetValidators : function() {
-		return Simplr.Core.Validation.mGetValidators();
+		return Simplr.Core.Validation.mData().validators;
 	},
 	mGetRuleResultsTemplate : function() {
 		return Simplr.Core.Validation.mGetRuleResultsTemplate();
