@@ -16,7 +16,7 @@
 	};
 	
 	Simplr.Controller = {
-	
+		
 		mAddBases : function(bases) {
 			var collection = $.isArray(bases) ? bases : [ bases ];
 			for(var i = 0, iL = collection.length; i < iL; i++) {
@@ -33,17 +33,13 @@
 			}
 		},
 		
+		mData : function() {
+			return ControllerData;
+		},
+		
 		mExecute : function(data) {
 			var key = data.route.join("_");
 			try { ControllerData.Commands[key](data); } catch(e) { };
-		},
-		
-		mGetCommands : function() {
-			return ControllerData.Commands;
-		},
-		
-		mGetBases : function() {
-			return ControllerData.Bases;
 		},
 		
 		mRoute : function(url) {

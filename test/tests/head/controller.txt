@@ -4,7 +4,7 @@
 		
 		function getCommandCount() {
 			var size = 0;
-			$.each(Simplr.Controller.mGetCommands(), function() {
+			$.each(Simplr.Controller.mData().Commands, function() {
 				size++;
 			});
 			return size;
@@ -12,7 +12,7 @@
 		
 		function getCommandNames() {
 			var results = [];
-			$.each(Simplr.Controller.mGetCommands(), function(name, object) {
+			$.each(Simplr.Controller.mData().Commands, function(name, object) {
 				results.push(name);
 			});
 			return results;

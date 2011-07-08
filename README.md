@@ -46,9 +46,8 @@ Functionality
 *	Simplr.Controller.*
 	+	Simplr.Controller.mAddBases()
 	+	Simplr.Controller.mAddCommands()
+	+	Simplr.Controller.mData()
 	+	Simplr.Controller.mExecute()
-	+	Simplr.Controller.mGetCommands()
-	+	Simplr.Controller.mGetBases()
 	+	Simplr.Controller.mRoute()
 	+	Simplr.Controller.mRouteAndExecute()
 *	Simplr.Conversion.*
