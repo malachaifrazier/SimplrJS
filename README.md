@@ -74,10 +74,9 @@ Functionality
 	+	Simplr.Core.Validation.*
 		-	Simplr.Core.Validation.mAddCodes()
 		-	Simplr.Core.Validation.mAddValidators()
-		-	Simplr.Core.Validation.mGetCodes()
+		-	Simplr.Core.validation.mData()
 		-	Simplr.Core.Validation.mGetCodeMessage()
 		-	Simplr.Core.Validation.mGetRuleResultsTemplate()
-		-	Simplr.Core.Validation.mGetValidators()
 		-	Simplr.Core.Validation.mValidate()
 *	Simplr.Form.*
 	+	Simplr.Form.mAddValidators()

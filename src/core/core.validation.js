@@ -59,9 +59,8 @@
 		mAddValidators : function(obj) {
 			$.extend(data.validators, obj);
 		},
-		
-		mGetCodes : function() {
-			return data.codes;
+		mData : function() {
+			return data;
 		},
 		mGetCodeMessage : function(code, label) {
 			if( data.codes[code] != undefined ) {
@@ -72,10 +71,6 @@
 		mGetRuleResultsTemplate : function() {
 			return $.extend(true, {}, data.ruleResultsTemplate);
 		},
-		mGetValidators : function() {
-			return data.validators;
-		},
-		
 		mValidate : function(dataObject) {
 			var results = $.extend(true, {}, data.validationResultsTemplate, { data : $.extend(true, {}, dataObject)});
 			for(var key in results.data) {

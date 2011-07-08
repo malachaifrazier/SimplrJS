@@ -3,13 +3,13 @@ Simplr.Validation = {
 		Simplr.Core.Validation.mAddCodes(obj);
 	},
 	mGetCodes : function() {
-		return Simplr.Core.Validation.mGetCodes();
+		return Simplr.Core.Validation.mData().codes;
 	},
 	mAddValidators : function(obj) {
 		Simplr.Core.Validation.mAddValidators(obj);
 	},
 	mGetValidators : function() {
-		return Simplr.Core.Validation.mGetValidators();
+		return Simplr.Core.Validation.mData().validators;
 	},
 	mGetRuleResultsTemplate : function() {
 		return Simplr.Core.Validation.mGetRuleResultsTemplate();

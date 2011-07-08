@@ -60,16 +60,14 @@
 			Simplr.Core.Validation.mAddValidators(obj);
 		},
 		mGetValidators : function() {
-			return Simplr.Core.Validation.mGetValidators();
+			return Simplr.Core.Validation.mData().validators;
 		},
-		
 		mAddCodes : function(obj) {
 			Simplr.Core.Validation.mAddCodes(obj);
 		},
 		mGetCodes : function() {
-			return Simplr.Core.Validation.mGetCodes();
+			return Simplr.Core.Validation.mData().codes;
 		},
-		
 		mAddLabelAssociation : function(obj) {
 			$.extend(FormData.Labels, obj);
 		},
