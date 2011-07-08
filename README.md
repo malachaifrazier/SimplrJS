@@ -111,8 +111,8 @@ Functionality
 	+	Simplr.Ui.mNewBrowserWindow()
 	+	Simplr.Ui.Widget.*
 		-	Simplr.Ui.Widget.oTrackableScrollingElement()
-			~	this.reset()
-			~	this.destroy()
+			1.	this.reset()
+			2.	this.destroy()
 *	Simplr.Util.*
 	+	Simplr.Util.mEmpty()
 	+	Simplr.Util.mEqual()
