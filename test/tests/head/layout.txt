@@ -5,7 +5,7 @@
 		
 		function countComponents() {
 			var count = 0;
-			$.each( Simplr.Layout.mGetComponents(), function() {
+			$.each(Simplr.Layout.mData().Components, function() {
 				count++;
 			});
 			return count;
@@ -72,7 +72,7 @@
 		});
 
 		test("simplre.layout.mAssembleLayout()", function() {
-			$.extend(Simplr.Layout.mGetComponents(), {
+			$.extend(Simplr.Layout.mData().Components, {
 				cp1 : "$[token]",
 				cp2 : "--$[token1]--$[token2]",
 				cp3 : "++$[string1]++$[string2]++"

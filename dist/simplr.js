@@ -1758,6 +1758,10 @@ var innerXHTML = function($source,$string,$appendage) {
 			}
 		},
 		
+		mAddGlobalTokens : function(globalTokens) {
+			$.extend(LayoutData.GlobalTokens, globalTokens);
+		},
+		
 		mAssembleLayout : function(config) {
 			var finalResults = "";
 			if( config ) {
@@ -1775,16 +1779,12 @@ var innerXHTML = function($source,$string,$appendage) {
 			return finalResults;
 		},
 		
+		mData : function() {
+			return LayoutData;
+		},
+		
 		mGetComponent : function(key) {
 			return getComponent(key);
-		},
-		
-		mGetComponents : function() {
-			return LayoutData.Components;
-		},
-		
-		mAddGlobalTokens : function(globalTokens) {
-			$.extend(LayoutData.GlobalTokens, globalTokens);
 		},
 		
 		mReplaceTokens : function(keys, string) {
@@ -1858,8 +1858,8 @@ var innerXHTML = function($source,$string,$appendage) {
 			}
 		},
 		
-		mGetServices : function() {
-			return TriggerData.Services;
+		mData : function() {
+			return TriggerData;
 		},
 
 		mSetEnvironment : function( env ) {
@@ -2177,7 +2177,9 @@ var innerXHTML = function($source,$string,$appendage) {
 	Simplr.View = {};
 	(function() {
 	
-	var ViewData = {};
+	var ViewData = {
+		Views : {}
+	};
 	
 	Simplr.View = {
 		mAddViews : function(obj) {
@@ -2186,16 +2188,18 @@ var innerXHTML = function($source,$string,$appendage) {
 					html : function(data) { return ""; }, 
 					callback : function(selector, data) {} 
 				}, obj[key]);
-				ViewData[key] = newView;
+				ViewData.Views[key] = newView;
 			}
 		},
-		mGetViews : function() {
+		
+		mData : function() {
 			return ViewData;
 		},
+		
 		mRender : function(options) {
 			var tmp = $.extend({ name : "", data: "", selector : ""}, options);
-			$(tmp.selector).html(ViewData[tmp.name].html(tmp.data));
-			ViewData[tmp.name].callback(tmp.selector, tmp.data);
+			$(tmp.selector).html(ViewData.Views[tmp.name].html(tmp.data));
+			ViewData.Views[tmp.name].callback(tmp.selector, tmp.data);
 		}
 	};
 	

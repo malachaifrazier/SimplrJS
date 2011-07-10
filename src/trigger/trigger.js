@@ -55,8 +55,8 @@
 			}
 		},
 		
-		mGetServices : function() {
-			return TriggerData.Services;
+		mData : function() {
+			return TriggerData;
 		},
 
 		mSetEnvironment : function( env ) {

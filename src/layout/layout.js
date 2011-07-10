@@ -41,6 +41,10 @@
 			}
 		},
 		
+		mAddGlobalTokens : function(globalTokens) {
+			$.extend(LayoutData.GlobalTokens, globalTokens);
+		},
+		
 		mAssembleLayout : function(config) {
 			var finalResults = "";
 			if( config ) {
@@ -58,16 +62,12 @@
 			return finalResults;
 		},
 		
+		mData : function() {
+			return LayoutData;
+		},
+		
 		mGetComponent : function(key) {
 			return getComponent(key);
-		},
-		
-		mGetComponents : function() {
-			return LayoutData.Components;
-		},
-		
-		mAddGlobalTokens : function(globalTokens) {
-			$.extend(LayoutData.GlobalTokens, globalTokens);
 		},
 		
 		mReplaceTokens : function(keys, string) {

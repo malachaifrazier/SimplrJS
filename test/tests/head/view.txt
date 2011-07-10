@@ -20,13 +20,13 @@
 
 		function getLayoutCount() {
 			var tmp = 0;
-			$.each(Simplr.View.mGetViews(), function(key, value) { tmp++; });
+			$.each(Simplr.View.mData().Views, function(key, value) { tmp++; });
 			return tmp;
 		};
 
 		function getLayoutNames() {
 			var tmp = [];
-			$.each(Simplr.View.mGetViews(), function(key, value) { tmp.push(key); });
+			$.each(Simplr.View.mData().Views, function(key, value) { tmp.push(key); });
 			return tmp;
 		};
 

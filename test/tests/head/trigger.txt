@@ -6,9 +6,9 @@
 		var xResult = 0;
 
 		module("Simplr.Trigger");
-		test("Simplr.Trigger.mAddServices() / .mGetServices", function() {
+		test("Simplr.Trigger.mAddServices()", function() {
 			
-			same(Simplr.Trigger.mGetServices(), {}, "No services");
+			same(Simplr.Trigger.mData().Services, {}, "No services");
 			Simplr.Trigger.mAddServices({ "ga" : {
 					data : {
 						environmentIDs : { dev : "something" }
@@ -25,7 +25,7 @@
 					}
 				}
 			});
-			equal($.isFunction(Simplr.Trigger.mGetServices().ga.onPage), true, "One service added");
+			equal($.isFunction(Simplr.Trigger.mData().Services.ga.onPage), true, "One service added");
 			Simplr.Trigger.mAddServices({ "wt" : {
 					data : {
 						environmentIDs : { dev : "something" }
@@ -42,7 +42,7 @@
 					}
 				}
 			});
-			equal($.isFunction(Simplr.Trigger.mGetServices().ga.onPage) && $.isFunction(Simplr.Trigger.mGetServices().wt.onPage), true, "Two services added");
+			equal($.isFunction(Simplr.Trigger.mData().Services.ga.onPage) && $.isFunction(Simplr.Trigger.mData().Services.wt.onPage), true, "Two services added");
 		});
 		
 		test("Simplr.Trigger.mOnPage()", function() {

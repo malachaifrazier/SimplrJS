@@ -90,14 +90,14 @@ Functionality
 *	Simplr.Layout.*
 	+	Simplr.Layout.mAddComponents()
 	+	Simplr.Layout.mAssembleLayout()
+	+	Simplr.Layout.mData()
 	+	Simplr.Layout.mGetComponent()
-	+	Simplr.Layout.mGetComponents()
 	+	Simplr.Layout.mAddGlobalTokens()
 	+	Simplr.Layout.mReplaceTokens()
 *	Simplr.Trigger.*
 	+	Simplr.Trigger.mAddServices()
-	+	Simplr.Trigger.mGetServices()
 	+	Simplr.Trigger.mSetEnvironment()
+	+	Simplr.Trigger.mData()
 	+	Simplr.Trigger.mOnPage()
 	+	Simplr.Trigger.mOnEvent()
 	+	Simplr.Trigger.mOnTransaction()
@@ -127,7 +127,7 @@ Functionality
 	+	Simplr.Validation.mValidate()
 *	Simplr.View.*
 	+	Simplr.View.mAddViews()
-	+	Simplr.View.mGetViews()
+	+	Simplr.View.mData()
 	+	Simplr.View.mRender()
 
 Usage

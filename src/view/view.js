@@ -1,6 +1,8 @@
 (function() {
 	
-	var ViewData = {};
+	var ViewData = {
+		Views : {}
+	};
 	
 	Simplr.View = {
 		mAddViews : function(obj) {
@@ -9,16 +11,18 @@
 					html : function(data) { return ""; }, 
 					callback : function(selector, data) {} 
 				}, obj[key]);
-				ViewData[key] = newView;
+				ViewData.Views[key] = newView;
 			}
 		},
-		mGetViews : function() {
+		
+		mData : function() {
 			return ViewData;
 		},
+		
 		mRender : function(options) {
 			var tmp = $.extend({ name : "", data: "", selector : ""}, options);
-			$(tmp.selector).html(ViewData[tmp.name].html(tmp.data));
-			ViewData[tmp.name].callback(tmp.selector, tmp.data);
+			$(tmp.selector).html(ViewData.Views[tmp.name].html(tmp.data));
+			ViewData.Views[tmp.name].callback(tmp.selector, tmp.data);
 		}
 	};
 	
